@@ -16,7 +16,7 @@ public class ArrayProblem {
             j--;
         }
 
-    }///this code i along with the problem => 31. Next Permutation
+    }///this code is along with the problem => 31. Next Permutation
     public void nextPermutation(int[] nums) {
         int n=nums.length;
         int ind1=-1;
