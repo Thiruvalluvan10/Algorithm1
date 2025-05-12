@@ -5,6 +5,51 @@ import java.util.Scanner;
 
 public class ArrayProblem {
 
+    public static void change(int i,int j,int arr[])
+    {
+        while(i<j)
+        {
+            int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+            i++;
+            j--;
+        }
+
+    }///this code i along with the problem => 31. Next Permutation
+    public void nextPermutation(int[] nums) {
+        int n=nums.length;
+        int ind1=-1;
+        int ind2=-1;
+        int min=10;
+        for(int i=n-1;i>=0;i--)
+        {
+            if(i!=n-1 && nums[i]<nums[i+1])
+            {
+                ind1=i;
+                break;
+            }
+        }
+        if(ind1==-1)
+        {
+
+            change(0,n-1,nums);
+            return;
+        }
+        for(int i=n-1;i>ind1;i--)
+        {
+            if(nums[i]>nums[ind1])
+            {
+                min=nums[i];
+                ind2=i;
+                break;
+            }
+        }
+        nums[ind2]=nums[ind1];
+        nums[ind1]=min;
+        change(ind1+1,n-1,nums);
+    }
+
     public static void setZeroes(int arr[][])
     {
         int n=arr.length;
