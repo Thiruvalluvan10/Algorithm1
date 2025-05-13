@@ -20,6 +20,31 @@ public class ArrayProblem {
         return m;
     }
 
+    public void sortColors(int[] nums) {
+        int z=0;;
+        int o=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i]==0)z++;
+            else if(nums[i]==1)o++;
+            nums[i]=2;
+        }
+        int n=o+z;
+        for(int i=0;i<n;i++)
+        {
+            if(z>0)
+            {
+                nums[i]=0;
+                z--;
+            }
+            else
+            {
+                nums[i]=1;
+                o--;
+            }
+        }
+    }
+
     public static void change(int i,int j,int arr[])
     {
         while(i<j)
