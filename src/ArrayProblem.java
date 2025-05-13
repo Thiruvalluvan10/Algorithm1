@@ -45,6 +45,17 @@ public class ArrayProblem {
         }
     }
 
+    public int maxProfit(int[] p) {
+        int max=0;
+        int min=Integer.MAX_VALUE;
+        for(int i=0;i<p.length;i++)
+        {
+            if(min>p[i])min=p[i];
+            else if(p[i]-min>max)max=p[i]-min;
+        }
+        return max;
+    }
+
     public static void change(int i,int j,int arr[])
     {
         while(i<j)
