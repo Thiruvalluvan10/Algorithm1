@@ -5,21 +5,19 @@ import java.util.Scanner;
 
 public class ArrayProblem {
 
-    class Solution {
-        public int maxSubArray(int[] nums) {
-            int m=nums[0];
-            for(int i=1;i<nums.length;i++)
+    public int maxSubArray(int[] nums) {
+        int m=nums[0];
+        for(int i=1;i<nums.length;i++)
+        {
+            nums[i]=nums[i]+nums[i-1]<nums[i]?nums[i]:nums[i]+nums[i-1];
+            if(nums[i]<0)
             {
-                nums[i]=nums[i]+nums[i-1]<nums[i]?nums[i]:nums[i]+nums[i-1];
-                if(nums[i]<0)
-                {
-                    m=Math.max(m,nums[i]);
-                    nums[i]=0;
-                }
-                else m=Math.max(m,nums[i]);
+                m=Math.max(m,nums[i]);
+                nums[i]=0;
             }
-            return m;
+            else m=Math.max(m,nums[i]);
         }
+        return m;
     }
 
     public static void change(int i,int j,int arr[])
