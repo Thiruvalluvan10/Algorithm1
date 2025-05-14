@@ -45,6 +45,30 @@ public class ArrayProblem {
         }
     }
 
+    public void rotate(int[][] arr) {
+        int n=arr.length;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<=i;j++)
+            {
+                int temp=arr[i][j];
+                arr[i][j]=arr[j][i];
+                arr[j][i]=temp;
+            }
+        }
+        for(int i=0;i<n;i++)
+        {
+            int st=0;
+            int end=n-1;
+            while(st<end)
+            {
+                int temp=arr[i][st];
+                arr[i][st]=arr[i][end];
+                arr[i][end]=temp;
+                st++;
+                end--;
+            }
+        }
     public int maxProfit(int[] p) {
         int max=0;
         int min=Integer.MAX_VALUE;
